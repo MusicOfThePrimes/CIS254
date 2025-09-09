@@ -26,9 +26,12 @@ import java.text.DecimalFormat;
 public class Conversion {
     // constants for conversion ratios
     static final double DOLLAR_EURO_RATIO = 0.85; // quoted on Sep 9, 2025
-    // static final double DOLLAR_EURO_RATIO = 0.85; // quoted on Sep 9, 2025
+    static final double DOLLAR_YEN_RATIO = 147.35; // quoted on Sep 9, 2025
 
-    // conversion method - dollar to euro
+    /** This method converts dollar to euro, 
+        using the inputed dollar amount.
+        @param amountInDollar the amount of dollars to be converted
+    */
     public static double dollarToEuro(double amountInDollar) {
         return amountInDollar * DOLLAR_EURO_RATIO;
     }
@@ -38,13 +41,21 @@ public class Conversion {
         return amountInEuro / DOLLAR_EURO_RATIO;
     }
 
+    public static double yenToDollar(double amountInYen) {
+        return amountInYen / DOLLAR_YEN_RATIO;
+    }
+
+    public static double dollarToYen(double amountInDollar) {
+        return amountInDollar * DOLLAR_YEN_RATIO;
+    }
+
     // menu method
     public static int menu (Scanner sc) {
         System.out.println("Choose a conversion option:");
         System.out.println("1. Euro -> US Dollar");
         System.out.println("2. US Dollar -> Euro");
-        System.out.println("3. ");
-        System.out.println("4. ");
+        System.out.println("3. YEN -> US Dollar");
+        System.out.println("4. US Dollar -> Yen");
         System.out.print("Your choice: ");
         int choice = sc.nextInt();
         return choice;
@@ -66,20 +77,20 @@ public class Conversion {
             case 1:
                 result = euroToDollar(amount);
                 // System.out.println(amount + " Euros = " + df.format(result) + " US Dollars");
-                System.out.println(" \u20AC " + amount  + " = " + " \u0024" + df.format(result));
+                System.out.println("\u20AC" + amount + " = " + "\u0024" + df.format(result));
                 break;
             case 2:
                 result = dollarToEuro(amount);
-                System.out.println(" \u0024" + amount + " = " + " \u20AC" + df.format(result));
+                System.out.println("\u0024" + amount + " = " + "\u20AC" + df.format(result));
                 break;
-            // case 3:
-            //     result = Euro2Dollar(amount);
-            //     System.out.println(amount + " Euro = " + df.format(result) + " US Dollar");
-            //     break;
-            // case 4:
-            //     result = Dollar2Euro(amount);
-            //     System.out.println(amount + " US Dollar = " + df.format(result) + " Euro");
-            //     break;
+            case 3:
+                result = yenToDollar(amount);
+                System.out.println("\u00A5" + amount + " = " + "\u0024" + df.format(result));
+                break;
+            case 4:
+                result = dollarToYen(amount);
+                System.out.println("\u0024" + amount + " = " + "\u00A5" + df.format(result));
+                break;
             default:
                 System.out.println("Invalid choice.");
                 break;
