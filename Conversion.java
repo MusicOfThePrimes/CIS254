@@ -68,34 +68,37 @@ public class Conversion {
 
         int choice = menu(sc);
 
-        System.out.print("Enter the amount to convert: ");
-        double amount = sc.nextDouble();
+        if (choice < 1 || choice > 4) {
+            System.out.println("Invalid choice.");
+        } else {
+            System.out.print("Enter the amount to convert: ");
+            double amount = sc.nextDouble();
 
-        double result = 0;
+            double result = 0;
 
-        switch (choice) {
-            case 1:
-                result = euroToDollar(amount);
-                // System.out.println(amount + " Euros = " + df.format(result) + " US Dollars");
-                System.out.println("\u20AC" + amount + " = " + "\u0024" + df.format(result));
-                break;
-            case 2:
-                result = dollarToEuro(amount);
-                System.out.println("\u0024" + amount + " = " + "\u20AC" + df.format(result));
-                break;
-            case 3:
-                result = yenToDollar(amount);
-                System.out.println("\u00A5" + amount + " = " + "\u0024" + df.format(result));
-                break;
-            case 4:
-                result = dollarToYen(amount);
-                System.out.println("\u0024" + amount + " = " + "\u00A5" + df.format(result));
-                break;
-            default:
-                System.out.println("Invalid choice.");
-                break;
+            switch (choice) {
+                case 1:
+                    result = euroToDollar(amount);
+                    // System.out.println(amount + " Euros = " + df.format(result) + " US Dollars");
+                    System.out.println("\u20AC" + amount + " = " + "\u0024" + df.format(result));
+                    break;
+                case 2:
+                    result = dollarToEuro(amount);
+                    System.out.println("\u0024" + amount + " = " + "\u20AC" + df.format(result));
+                    break;
+                case 3:
+                    result = yenToDollar(amount);
+                    System.out.println("\u00A5" + amount + " = " + "\u0024" + df.format(result));
+                    break;
+                case 4:
+                    result = dollarToYen(amount);
+                    System.out.println("\u0024" + amount + " = " + "\u00A5" + df.format(result));
+                    break;
+                // default:
+                //     System.out.println("Invalid choice.");
+                //     break;
+            }
         }
-
 
         // test git commit
 
