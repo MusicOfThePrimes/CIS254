@@ -8,7 +8,7 @@
  *                     
  * ....
  * 
- * @author Huilin Reid, Vixen La Ruk
+ * @author Huilin Reid, Vixen La Ruk hii
  * @since September 10, 2025
  * 
  * To compile: javac Conversion.java
