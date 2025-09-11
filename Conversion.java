@@ -61,13 +61,8 @@ public class Conversion {
 
     /** This method converts a given amount in US Dollars to Malaysian Ringgit. 
      * 
-<<<<<<< HEAD
-     *  @param amountInDollar the amount of US Dollars to be converted
-     *  @return the equivalent amount in Japanese Yen
-=======
      *  @param amountInDollar the amount of dollars to be converted
      *  @return the equivalent amount in Malaysian Ringgit
->>>>>>> 1c54c9957155275c5606a020f1f69f91ade37795
      */
     public static double dollarToRinggit(double amountInDollar) {
         return amountInDollar * DOLLAR_RINGGIT_RATIO;
@@ -82,7 +77,7 @@ public class Conversion {
         return amountInRinggit / DOLLAR_RINGGIT_RATIO;
     }
  
-    // menu method - displays currency conversion choices for user to choose
+    // menu method - displays currency conversion choices
     public static int menu (Scanner sc) {
         System.out.println("Choose a conversion option:");
         System.out.println("1. Euro -> US Dollar");
