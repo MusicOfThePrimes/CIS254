@@ -7,7 +7,7 @@
  *     - US dollars and Euros
  *     - US dollars and Japanese Yen
  * 
- * @author Huilin Reid, Vixen La Ruk hii
+ * @author Huilin Reid, Vixen La Ruk
  * @since September 10, 2025
  * 
  * To compile: javac Conversion.java
