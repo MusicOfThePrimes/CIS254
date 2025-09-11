@@ -78,7 +78,13 @@ public class Conversion {
         return amountInRinggit / DOLLAR_RINGGIT_RATIO;
     }
  
-    // menu method - displays currency conversion choices
+    /** displays a currency conversion menu to the user with four options. 
+     * It then uses the provided Scanner to read the user's numeric choice 
+     * and returns that choice as an integer.
+     * 
+     *  @param sc the Scanner object used to read user input from the console
+     *  @return the user-entered choice
+     */
     public static int menu (Scanner sc) {
         System.out.println("Choose a conversion option:");
         System.out.println("1. Euro -> US Dollar");
@@ -90,7 +96,12 @@ public class Conversion {
         return choice;
     }
 
-    // main method
+    /**
+     * main method:
+     * The entry point of the program. This method is called when the program starts.
+     *
+     * @param args an array of command-line arguments passed to the program
+     */
      public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("#.00");
