@@ -13,11 +13,25 @@
  * 
  * To compile: javac Conversion.java
  * To run: java Conversion
- * then select a conversion option
- * then input converstion amount
+ *         then select a conversion option
+ *         then input converstion amount
  * 
- * e.g.
+ * e.g. Choose a conversion option:
+ *      1. Euro -> US Dollar
+ *      2. US Dollar -> Euro
+ *      3. YEN -> US Dollar
+ *      4. US Dollar -> Yen
+ *      Your choice: 4
+ *      Enter the amount to convert: 100
+ *      $100.0 = ¥14735.00
  * 
+ *      Choose a conversion option:
+ *      1. Euro -> US Dollar
+ *      2. US Dollar -> Euro
+ *      3. YEN -> US Dollar
+ *      4. US Dollar -> Yen
+ *      Your choice: 5
+ *      Invalid choice.
  */
 
 import java.util.Scanner;
@@ -36,20 +50,32 @@ public class Conversion {
         return amountInDollar * DOLLAR_EURO_RATIO;
     }
 
-    // conversion method - euro to dollar
+    
+    /** This method converts euro to dollar, 
+        using the inputed euro amount.
+        @param amountInEuro the amount of euros to be converted
+    */
     public static double euroToDollar(double amountInEuro) {
         return amountInEuro / DOLLAR_EURO_RATIO;
     }
 
+    /** This method converts yen to dollar, 
+        using the inputed yen amount.
+        @param amountInYen the amount of yens to be converted
+    */
     public static double yenToDollar(double amountInYen) {
         return amountInYen / DOLLAR_YEN_RATIO;
     }
 
+    /** This method converts dollar to yen, 
+        using the inputed dollar amount.
+        @param amountInDollar the amount of dollars to be converted
+    */
     public static double dollarToYen(double amountInDollar) {
         return amountInDollar * DOLLAR_YEN_RATIO;
     }
 
-    // menu method
+    // menu method - displays currency conversion choices for user to choose
     public static int menu (Scanner sc) {
         System.out.println("Choose a conversion option:");
         System.out.println("1. Euro -> US Dollar");
@@ -63,16 +89,16 @@ public class Conversion {
 
     // main method
      public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("#.00");
 
-        int choice = menu(sc);
+        int choice = menu(in);
 
         if (choice < 1 || choice > 4) {
             System.out.println("Invalid choice.");
         } else {
             System.out.print("Enter the amount to convert: ");
-            double amount = sc.nextDouble();
+            double amount = in.nextDouble();
 
             double result = 0;
 
@@ -94,16 +120,9 @@ public class Conversion {
                     result = dollarToYen(amount);
                     System.out.println("\u0024" + amount + " = " + "\u00A5" + df.format(result));
                     break;
-                // default:
-                //     System.out.println("Invalid choice.");
-                //     break;
             }
         }
-
-        // test git commit
-
-
-        sc.close();
+        in.close();
     }
     
 }
