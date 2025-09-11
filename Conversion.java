@@ -32,7 +32,7 @@
  *      Your choice: 5
  *      Invalid choice.
  */
-// test pull
+
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
@@ -61,7 +61,7 @@ public class Conversion {
 
     /** This method converts a given amount in US Dollars to Japanese Yen. 
      * 
-     *  @param amountInDollar the amount of dollars to be converted
+     *  @param amountInDollar the amount of US Dollars to be converted
      *  @return the equivalent amount in Japanese Yen
      */
     public static double dollarToYen(double amountInDollar) {
