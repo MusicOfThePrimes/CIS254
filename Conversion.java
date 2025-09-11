@@ -7,7 +7,8 @@
  *     - US dollars and Euros
  *     - US dollars and Malaysian Ringgit
  * 
- * @author Huilin Reid, Vixen La Ruk
+ * @author Huilin Reid
+ * @author Vixen La Ruk
  * @since September 10, 2025
  * 
  * To compile: javac Conversion.java
