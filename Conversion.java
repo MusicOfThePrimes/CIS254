@@ -120,22 +120,22 @@ public class Conversion {
             switch (choice) {
                 case 1:
                     result = euroToDollar(amount);
-                    // Euros -> US Dollars
+                    // Euro -> US Dollar
                     System.out.println("\u20AC" + amount + " = " + "\u0024" + df.format(result));
                     break;
                 case 2:
                     result = dollarToEuro(amount);
-                    // US Dollars -> Euros
+                    // US Dollar -> Euro
                     System.out.println("\u0024" + amount + " = " + "\u20AC" + df.format(result));
                     break;
                 case 3:
                     result = ringgitToDollar(amount);
-                    // Malaysian Ringgits -> US Dollars
+                    // Malaysian Ringgit -> US Dollar
                     System.out.println("\u0052\u004D" + amount + " = " + "\u0024" + df.format(result));
                     break;
                 case 4:
                     result = dollarToRinggit(amount);
-                    // US Dollars -> Malaysian Ringgits
+                    // US Dollar -> Malaysian Ringgit
                     System.out.println("\u0024" + amount + " = " + "\u0052\u004D" + df.format(result));
                     break;
             }
