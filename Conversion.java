@@ -38,10 +38,10 @@ import java.text.DecimalFormat;
 
 public class Conversion {
     // constants for conversion ratios
-    static final double DOLLAR_EURO_RATIO = 0.85; // US Dollar to Euro, quoted on Sep 9, 2025
-    static final double DOLLAR_RINGGIT_RATIO = 4.22; // US dollar to Malaysian Ringgit, quoted on Sep 9, 2025
+    static final double DOLLAR_EURO_RATIO = 0.85; // US Dollar to Euro, quoted on Sep 10, 2025
+    static final double DOLLAR_RINGGIT_RATIO = 4.22; // US dollar to Malaysian Ringgit, quoted on Sep 10, 2025
 
-    /** This method converts a given amount in UD Dollars to Euros. 
+    /** This method converts a given amount in US Dollars to Euros. 
      * 
      *  @param amountInDollar the amount of US Dollars to be converted
      *  @return the equivalent amount in Euros
@@ -50,7 +50,7 @@ public class Conversion {
         return amountInDollar * DOLLAR_EURO_RATIO;
     }
 
-    /** This method converts a given amount in Euros to UD Dollars. 
+    /** This method converts a given amount in Euros to US Dollars. 
      *
      *  @param amountInEuro the amount of Euros to be converted
      *  @return the equivalent amount in US Dollars
@@ -127,6 +127,6 @@ public class Conversion {
                     break;
             }
         }
-        in.close(); 
+        in.close();
     }   
 }
