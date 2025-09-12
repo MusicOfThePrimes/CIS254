@@ -15,24 +15,31 @@
  *         then select a conversion option
  *         then input converstion amount
  * 
- * e.g. Choose a conversion option:
- *      1. Euro -> US Dollar
- *      2. US Dollar -> Euro
- *      3. Malaysian Ringgit -> US Dollar
- *      4. US Dollar -> Malaysian Ringgit
- * 
- *      Your choice: 4
- *      Enter the amount to convert: 100
- *      $100.0 = RM422.20
- * 
+ * E.g.
  *      Choose a conversion option:
- *      1. Euro -> US Dollar
- *      2. US Dollar -> Euro
- *      3. Malaysian Ringgit -> US Dollar
- *      4. US Dollar -> Malaysian Ringgit
- * 
- *      Your choice: 5
- *      Invalid choice.
+ *          1. Euro -> US Dollar
+ *          2. US Dollar -> Euro
+ *          3. Malaysian Ringgit -> US Dollar
+ *          4. US Dollar -> Malaysian Ringgit
+ *      Your choice: a
+ *      Invalid input. Please enter a number.
+ *
+ *      Choose a conversion option:
+ *          1. Euro -> US Dollar
+ *          2. US Dollar -> Euro
+ *          3. Malaysian Ringgit -> US Dollar
+ *          4. US Dollar -> Malaysian Ringgit
+ *      Your choice: -9
+ *      Invalid choice. Please enter a number from 1 to 4.
+ *
+ *      Choose a conversion option:
+ *          1. Euro -> US Dollar
+ *          2. US Dollar -> Euro
+ *          3. Malaysian Ringgit -> US Dollar
+ *          4. US Dollar -> Malaysian Ringgit
+ *      Your choice: 3
+ *      Enter the amount to convert: 100
+ *      RM100.0 = $23.70
  */
 
 import java.util.Scanner;
@@ -84,16 +91,31 @@ public class Conversion {
      * and returns that choice as an integer.
      * 
      *  @param sc the Scanner object used to read user input from the console
-     *  @return the user-entered choice
+     *  @return the validated menu choice (user input) as integer
      */
     public static int menu (Scanner sc) {
-        System.out.println("Choose a conversion option:");
-        System.out.println("1. Euro -> US Dollar");
-        System.out.println("2. US Dollar -> Euro");
-        System.out.println("3. Malaysian Ringgit -> US Dollar");
-        System.out.println("4. US Dollar -> Malaysian Ringgit");
-        System.out.print("Your choice: ");
-        int choice = sc.nextInt();
+        int choice = -1;
+        
+        while (true) {
+            System.out.println("\nChoose a conversion option:");
+            System.out.println("    1. Euro -> US Dollar");
+            System.out.println("    2. US Dollar -> Euro");
+            System.out.println("    3. Malaysian Ringgit -> US Dollar");
+            System.out.println("    4. US Dollar -> Malaysian Ringgit");
+            System.out.print("Your choice: ");
+
+            if (sc.hasNextInt()) { 
+                choice = sc.nextInt();
+                if (choice >=1 && choice <= 4) {
+                    break; // valid input, exit loop
+                } else {
+                    System.out.println("Invalid choice. Please enter a number from 1 to 4.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                sc.next(); // consume the invalid input
+            }   
+        }
         return choice;
     }
 
@@ -107,37 +129,51 @@ public class Conversion {
         Scanner in = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("#.00");
 
-        int choice = menu(in);
+        boolean keepGoing = true;
 
-        if (choice < 1 || choice > 4) {
-            System.out.println("Invalid choice.");
-        } else {
+        while (keepGoing) {
+            // get a valid converion option from the user
+            int choice = menu(in);
+
+            // prompt for the amount to convert
             System.out.print("Enter the amount to convert: ");
             double amount = in.nextDouble();
 
             double result = 0;
 
+            // perform the selected conversion
             switch (choice) {
                 case 1:
                     result = euroToDollar(amount);
                     // Euro -> US Dollar
-                    System.out.println("\u20AC" + amount + " = " + "\u0024" + df.format(result));
+                    System.out.println("\u20AC" + amount + " = " + "\u0024" + df.format(result) + "\n");
                     break;
                 case 2:
                     result = dollarToEuro(amount);
                     // US Dollar -> Euro
-                    System.out.println("\u0024" + amount + " = " + "\u20AC" + df.format(result));
+                    System.out.println("\u0024" + amount + " = " + "\u20AC" + df.format(result) + "\n");
                     break;
                 case 3:
                     result = ringgitToDollar(amount);
                     // Malaysian Ringgit -> US Dollar
-                    System.out.println("\u0052\u004D" + amount + " = " + "\u0024" + df.format(result));
+                    System.out.println("\u0052\u004D" + amount + " = " + "\u0024" + df.format(result) + "\n");
                     break;
                 case 4:
                     result = dollarToRinggit(amount);
                     // US Dollar -> Malaysian Ringgit
-                    System.out.println("\u0024" + amount + " = " + "\u0052\u004D" + df.format(result));
+                    System.out.println("\u0024" + amount + " = " + "\u0052\u004D" + df.format(result) + "\n");
                     break;
+            }
+
+            // consume leftover newline after nextDouble()
+            in.nextLine();
+
+            System.out.print("Do you want to do another conversion? (yes/no): ");
+            String response = in.nextLine().trim().toLowerCase();
+
+            if (response.equals("no") || response.equals("n")) {
+                keepGoing = false;
+                System.out.println("Thank you for using the currency converter!\n");
             }
         }
         in.close();
