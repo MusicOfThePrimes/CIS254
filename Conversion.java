@@ -1,45 +1,31 @@
 /**
- * Partner Lab 1
- * Description: This program is designed to convert between different 
- * currencies using predefined/quoted exchange rates. 
- * It supports currency conversions between:
- *     - US Dollar and Euro
- *     - US Dollar and Malaysian Ringgit
- * 
+ * Currency Converter Program
+ *
+ * <p>This program is an interactive currency converter that allows users to convert 
+ * monetary amounts between four supported currency pairs using fixed exchange rates:
+ * <ul>
+ *     <li>Euro → US Dollar</li>
+ *     <li>US Dollar → Euro</li>
+ *     <li>Malaysian Ringgit → US Dollar</li>
+ *     <li>US Dollar → Malaysian Ringgit</li>
+ * </ul>
+ *
+ * <p>The program:
+ * <ul>
+ *     <li>Displays a menu of conversion options</li>
+ *     <li>Validates user input for both menu choice and amount</li>
+ *     <li>Handles invalid input gracefully (e.g., letters, symbols, out-of-range numbers)</li>
+ *     <li>Performs the selected currency conversion using fixed rates</li>
+ *     <li>Displays results using appropriate currency symbols (€ for Euro, $ for USD, RM for Ringgit)</li>
+ *     <li>Asks the user if they want to perform another conversion</li>
+ * </ul>
+ *
+ * <p>The program loops until the user chooses to stop by entering "no" or "n". 
+ * It provides a user-friendly and fault-tolerant interface for currency conversion tasks.
+ *
  * @author Huilin Reid
  * @author Vixen La Ruk
- * @since September 10, 2025
- * 
- * To compile: javac Conversion.java
- * To run: java Conversion
- *         then select a conversion option
- *         then input converstion amount
- * 
- * E.g.
- *      Choose a conversion option:
- *          1. Euro -> US Dollar
- *          2. US Dollar -> Euro
- *          3. Malaysian Ringgit -> US Dollar
- *          4. US Dollar -> Malaysian Ringgit
- *      Your choice: a
- *      Invalid input. Please enter a number.
- *
- *      Choose a conversion option:
- *          1. Euro -> US Dollar
- *          2. US Dollar -> Euro
- *          3. Malaysian Ringgit -> US Dollar
- *          4. US Dollar -> Malaysian Ringgit
- *      Your choice: -9
- *      Invalid choice. Please enter a number from 1 to 4.
- *
- *      Choose a conversion option:
- *          1. Euro -> US Dollar
- *          2. US Dollar -> Euro
- *          3. Malaysian Ringgit -> US Dollar
- *          4. US Dollar -> Malaysian Ringgit
- *      Your choice: 3
- *      Enter the amount to convert: 100
- *      RM100.0 = $23.70
+ * @since 2025-09-10
  */
 
 import java.util.Scanner;
