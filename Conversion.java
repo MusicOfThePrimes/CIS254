@@ -1,11 +1,10 @@
-
 /**
  * Partner Lab 1
  * Description: This program is designed to convert between different 
  * currencies using predefined/quoted exchange rates. 
  * It supports currency conversions between:
- *     - US dollars and Euros
- *     - US dollars and Malaysian Ringgits
+ *     - US Dollar and Euro
+ *     - US Dollar and Malaysian Ringgit
  * 
  * @author Huilin Reid
  * @author Vixen La Ruk
@@ -21,6 +20,7 @@
  *      2. US Dollar -> Euro
  *      3. Malaysian Ringgit -> US Dollar
  *      4. US Dollar -> Malaysian Ringgit
+ * 
  *      Your choice: 4
  *      Enter the amount to convert: 100
  *      $100.0 = RM422.20
@@ -30,6 +30,7 @@
  *      2. US Dollar -> Euro
  *      3. Malaysian Ringgit -> US Dollar
  *      4. US Dollar -> Malaysian Ringgit
+ * 
  *      Your choice: 5
  *      Invalid choice.
  */
@@ -39,40 +40,40 @@ import java.text.DecimalFormat;
 
 public class Conversion {
     // constants for conversion ratios
-    static final double DOLLAR_EURO_RATIO = 0.85; // US Dollar to Euro, quoted on Sep 9, 2025
-    static final double DOLLAR_RINGGIT_RATIO = 4.22; // US dollar to Malaysian Ringgit, quoted on Sep 9, 2025
+    static final double DOLLAR_EURO_RATIO = 0.85; // US Dollar to Euro, quoted on Sep 10, 2025
+    static final double DOLLAR_RINGGIT_RATIO = 4.22; // US dollar to Malaysian Ringgit, quoted on Sep 10, 2025
 
-    /** This method converts a given amount in UD Dollars to Euros. 
+    /** This method converts a given amount in US Dollar to Euro. 
      * 
-     *  @param amountInDollar the amount of US Dollars to be converted
-     *  @return the equivalent amount in Euros
+     *  @param amountInDollar the amount in US Dollar to be converted
+     *  @return the equivalent amount in Euro
      */
     public static double dollarToEuro(double amountInDollar) {
         return amountInDollar * DOLLAR_EURO_RATIO;
     }
 
-    /** This method converts a given amount in Euros to UD Dollars. 
+    /** This method converts a given amount in Euro to US Dollar. 
      *
-     *  @param amountInEuro the amount of Euros to be converted
-     *  @return the equivalent amount in US Dollars
+     *  @param amountInEuro the amount in Euro to be converted
+     *  @return the equivalent amount in US Dollar
      */
     public static double euroToDollar(double amountInEuro) {
         return amountInEuro / DOLLAR_EURO_RATIO;
     }
 
-    /** This method converts a given amount in US Dollars to Malaysian Ringgits. 
+    /** This method converts a given amount in US Dollar to Malaysian Ringgit. 
      * 
-     *  @param amountInDollar the amount of US Dollars to be converted
-     *  @return the equivalent amount in Malaysian Ringgits
+     *  @param amountInDollar the amount in US Dollar to be converted
+     *  @return the equivalent amount in Malaysian Ringgit
      */
     public static double dollarToRinggit(double amountInDollar) {
         return amountInDollar * DOLLAR_RINGGIT_RATIO;
     }
 
-    /** This method converts a given amount in Malaysian Ringgits to US Dollars. 
+    /** This method converts a given amount in Malaysian Ringgit to US Dollar. 
      * 
-     *  @param amountInRinggit the amount of Malaysian Ringgits to be converted
-     *  @return the equivalent amount in US Dollars
+     *  @param amountInRinggit the amount in Malaysian Ringgit to be converted
+     *  @return the equivalent amount in US Dollar
      */
     public static double ringgitToDollar(double amountInRinggit) {
         return amountInRinggit / DOLLAR_RINGGIT_RATIO;
@@ -119,26 +120,26 @@ public class Conversion {
             switch (choice) {
                 case 1:
                     result = euroToDollar(amount);
-                    // Euros -> US Dollars
+                    // Euro -> US Dollar
                     System.out.println("\u20AC" + amount + " = " + "\u0024" + df.format(result));
                     break;
                 case 2:
                     result = dollarToEuro(amount);
-                    // US Dollars -> Euros
+                    // US Dollar -> Euro
                     System.out.println("\u0024" + amount + " = " + "\u20AC" + df.format(result));
                     break;
                 case 3:
                     result = ringgitToDollar(amount);
-                    // Malaysian Ringgits -> US Dollars
+                    // Malaysian Ringgit -> US Dollar
                     System.out.println("\u0052\u004D" + amount + " = " + "\u0024" + df.format(result));
                     break;
                 case 4:
                     result = dollarToRinggit(amount);
-                    // US Dollars -> Malaysian Ringgits
+                    // US Dollar -> Malaysian Ringgit
                     System.out.println("\u0024" + amount + " = " + "\u0052\u004D" + df.format(result));
                     break;
             }
         }
-        in.close(); 
+        in.close();
     }   
 }
