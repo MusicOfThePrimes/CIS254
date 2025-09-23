@@ -123,6 +123,13 @@ public class Conversion {
 
             // prompt for the amount to convert
             System.out.print("Enter the amount to convert: ");
+            
+            // validate user input: make sure it's a number
+            while (!in.hasNextDouble()) {
+                String word = in.next();
+                System.err.println(word + " is not a number!");
+                System.out.println("Enter a number:");
+            }
             double amount = in.nextDouble();
 
             double result = 0;
